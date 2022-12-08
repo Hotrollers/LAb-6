@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Main.css">
+    <title>Document</title>
+
+</head>
+<center>
+<body style="text-align:center;">
+    
+    
+    <!-- header -->
+    <header>            
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
+            <li><a href="Review.html">Reviews</a></li>
+            <li style="float:right"><a class="active" href="Home.html">_kentography</a></li>
+          </ul>
+    </header>
+    
+    <div style="background-color: whitesmoke; padding: 10px,150px;">
+
+    
+    <h2>Feedback</h2>
+
+    <div>
+        <p>It would be much appreciated to get your feedback my work as well as tips to imporve myelf as well as my web site</p>
+        <p>Thank you</p>
+    </div>
+
+    <br><br>
+
+    <!--Feedback div-->
+
+
+    <div style="border-style: solid; border-radius: 5px; border-color: #111; margin: 5px,100px;">
+        <form action="">
+
+        <table style="padding: 35px;">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="name" placeholder="Kenneth Alvares" onkeypress="return isalphaKey(event)" required></td>
+                </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="tel" id="phone" name="phone" placeholder="498-348-3872" onkeypress="return isNumberKey(event)" required></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" id="email" name="email" placeholder="kenn@email.com" required></td>
+            </tr>
+            <tr>
+                <td for="checkout-date">Birthday</td>
+                <td><input type="date" id="date"></td>
+            </tr>
+            <tr>
+                <td>Feedback about Web Page</td>
+                <td><input type="text" id="fwp"></td>
+            </tr>
+            <tr>
+                <td>Feedback for Photography</td>
+                <td><input type="text" id="fphoto"></td>
+            </tr>
+            <tr>
+                <td>Do like any Picture</td>
+                <td><input type="radio" name="rsvp">Yes   
+                    <input type="radio" name="rsvp"> No</td>
+            </tr>
+            <tr>
+                <td>Would you like a response mail to your feedback</td>
+                <td><input type="checkbox" name="" id="">Yes</td>
+            </tr>
+            <tr>
+                <td>Whats the range u would rate the picture at</td>
+                <td><input type="range" name="picrange" id=""></td>
+                
+            </tr>
+            <tr>
+                <!-- <td><button type="button" onclick="myFunction()">Submit</button></td> -->
+                <td><button type="button" onclick="validate()">Submit</button></td>
+            </tr>
+        </table>
+
+
+            <label for="geoLocation">Where are you located</label>
+            <input type="button" value="Location" onclick="getloc()">
+            <div id="loc"> </div>
+        
+        </form>
+
+        <div>
+            <h3>Sign Here</h3>
+            <canvas id="myCanvas" width="200" height="40" style="border:1px solid #000000;">
+            </canvas>
+        </div>
+        <br><br>
+
+    </div>
+
+
+</div>
+    
+
+<footer>
+    <div style="padding:10px; background-color: whitesmoke;">
+        <h3 style="font-size: 50px 20px;"><i> Check out my work at </i> </h3>
+        <img style="height: 30px;" src="Pictures/instagram.svg" alt="instagram icon">
+        <br><br>
+        <a href="https://www.instagram.com/">@_kentography</a>
+        <br><br>
+    </div>
+</footer>
+
+
+
+
+<!-- Script -->
+<script>
+    var x = document.getElementById("loc");
+    function getloc() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        
+    }
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+    }
+
+    //form validation
+
+ function myFunction() {
+  // Get the value of the input field with id="numb"
+  let x = document.getElementById("name").value;
+  // If x is Not a Number or less than one or greater than 10
+  let text;
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+function isalphaKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode;
+		 const re = /^[A-Za-z]+$/;
+
+		 if (re.test(evt.key)!=true)
+            return false;
+
+         return true;
+      }
+
+      function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode;
+		 const re = /^[A-Za-z]+$/;
+
+		 if (re.test(evt.key))
+            return false;
+
+         return true;
+      }
+
+      function validate() {
+
+//checking for null in name
+testEle = document.getElementById("name").value;
+testEle2 = document.getElementById("name");
+if (testEle == "") {
+    testEle2.style.border = "red solid 3px";
+    alert("Please fill name");
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+
+
+
+//
+testEle = document.getElementById("fwp").value;
+testEle2 = document.getElementById("fwp");
+if (testEle == "") {
+    testEle2.style.border = "red solid 3px";
+    alert("Please fill feedback");
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+
+//
+testEle = document.getElementById("fphoto").value;
+testEle2 = document.getElementById("fphoto");
+if (testEle == "") {
+    testEle2.style.border = "red solid 3px";
+    alert("Please fill feedback for photo");
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+
+
+//validating email
+var testEle = document.getElementById("email").value;
+  var testEle2 = document.getElementById("email");
+var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (re.test(testEle)!= true) {
+    testEle2.style.border = "red solid 3px";
+    alert("email format invalid.");
+    return false;
+  }
+
+testEle2.style.border = "green solid 3px";
+
+
+//validating phone
+testEle = document.getElementById("phone").value;
+testEle2 = document.getElementById("phone");
+var re = /^[6-9][0-9]\d{8}$/;
+if (re.test(testEle)!= true) {
+    testEle2.style.border = "red solid 3px";
+    alert("phone number invalid");
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+
+
+
+//checking for null in date
+testEle = document.getElementById("date").value;
+testEle2 = document.getElementById("date");
+if (testEle == "") {
+    testEle2.style.border = "red solid 3px";
+    alert("Please fill date");
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+  
+
+//validating special key
+const pswformat = "special key invalid\n\nminimum of 1 lower case letter [a-z]\nminimum of 1 upper case letter [A-Z]\nminimum of 1 numeric character [0-9]\n1 special character.";
+testEle = document.getElementById("spckey").value;
+testEle2 = document.getElementById("spckey");
+var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+if (re.test(testEle)!= true) {
+    testEle2.style.border = "red solid 3px";
+    alert(pswformat);
+    return false;
+}
+testEle2.style.border = "green solid 3px";
+
+alert("Submited Successfully");
+
+}
+
+
+
+
+    </script>
+
+</body>
+</center>
+</html>
