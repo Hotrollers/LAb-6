@@ -6,20 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/Main.css">
     <title>Document</title>
-
+    <link rel="stylesheet" href="CSS/Main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <center>
 <body style="text-align:center;">
     
     
     <!-- header -->
-    <header>            
-        <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Feedback.html">Feedback</a></li>
-            <li><a href="Review.html">Reviews</a></li>
-            <li style="float:right"><a class="active" href="Home.html">_kentography</a></li>
-          </ul>
+    <header id="header">            
+      <nav class="navbar navbar-expand" style="border-radius: 15px;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarCenteredExample"
+            aria-controls="navbarCenteredExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarCenteredExample"
+          >
+            <!-- Left links -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><b>_kentography</b></a>
+              </li>
+              <li class="nav-item" style="padding-left:30px;">
+                <a class="nav-link" href="#">Feedback</a>
+              </li>
+              <li class="nav-item" style="padding-left:30px;">
+                <a class="nav-link" href="#">Review</a>
+              </li>
+              <li class="nav-item" style="padding-left:30px;">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
     </header>
     
     <div style="background-color: whitesmoke; padding: 10px,150px;">
@@ -37,29 +80,34 @@
     <!--Feedback div-->
 
 
-    <div style="border-style: solid; border-radius: 5px; border-color: #111; margin: 5px,100px;">
-        <form action="">
+    <div id="bg" style="border-style: solid; border-radius: 5px; border-color: #111; margin: 5px,100px;width: 60%;">
+        <form action="" >
 
         <table style="padding: 35px;">
             <tr>
                 <td>Name</td>
                 <td><input type="text" id="name" placeholder="Kenneth Alvares" onkeypress="return isalphaKey(event)" required></td>
+                <td><label for="pname" id="pname"></label></td>
                 </tr>
             <tr>
                 <td>Phone Number</td>
                 <td><input type="tel" id="phone" name="phone" placeholder="498-348-3872" onkeypress="return isNumberKey(event)" required></td>
+                <td><label for="pphone" id="pphone"></label></td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td><input type="email" id="email" name="email" placeholder="kenn@email.com" required></td>
+                <td><label for="pemail" id="pemail"></label></td>
             </tr>
             <tr>
                 <td for="checkout-date">Birthday</td>
                 <td><input type="date" id="date"></td>
+                <td><label for="pdate" id="pdate"></label></td>
             </tr>
             <tr>
                 <td>Feedback about Web Page</td>
                 <td><input type="text" id="fwp"></td>
+                <td><label for="pfwp" id="pfwp"></label></td>
             </tr>
             <tr>
                 <td>Feedback for Photography</td>
@@ -81,7 +129,11 @@
             </tr>
             <tr>
                 <!-- <td><button type="button" onclick="myFunction()">Submit</button></td> -->
-                <td><button type="button" onclick="validate()">Submit</button></td>
+                <!--<td><button type="button" onclick="validate()">Submit</button></td>-->
+                <td><input type="button" onclick="func1()" value="Submit"></td>
+                <td><input type="button" onclick="fillbox()" value="Check Response"></td>
+                <td><input type="button" onclick="remove()" value="Clear Cookie"></td>
+                <td><input type="button" onclick="func2()" value="Change background"></td>
             </tr>
         </table>
 
@@ -99,20 +151,35 @@
         </div>
         <br><br>
 
+        
+
     </div>
 
+
+
+
+<button onclick="checkCookie()">Click me</button>
+
+<div id="bg1" style="border-radius: 20px;">
+  <p>Choose your Theme<br><br>
+  <input type="radio" name="theme" id="blue" style="accent-color: #C0DEFF;" onclick="func1('#C0DEFF')" value="blue">
+  <input type="radio" name="theme" id="white" style="accent-color: antiquewhite;" onclick="func1('antiquewhite')" value="white">
+ </p>
+</div>
+
+<div id="bgg" style="height: 50px;">
+         
+</div>
 
 </div>
     
 
-<footer>
-    <div style="padding:10px; background-color: whitesmoke;">
-        <h3 style="font-size: 50px 20px;"><i> Check out my work at </i> </h3>
-        <img style="height: 30px;" src="Pictures/instagram.svg" alt="instagram icon">
-        <br><br>
-        <a href="https://www.instagram.com/">@_kentography</a>
-        <br><br>
-    </div>
+<footer id="footer">
+  <div>
+      <img style="height: 25px;" src="Pictures/instagram.svg" alt="instagram icon">
+      <a href="https://www.instagram.com/">_kentography</a>
+      <br><br>
+  </div>
 </footer>
 
 
@@ -121,6 +188,42 @@
 <!-- Script -->
 <script>
     var x = document.getElementById("loc");
+
+    //cookies
+    function setCookie(cname, cvalue, exdays) 
+        {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            
+        }
+
+    function func1(x)
+    {
+      if(x=="theme")
+            {
+                var color=x;
+            }
+        var fname = document.getElementById("name").value;
+        var fphone = document.getElementById("phone").value;
+        var femail = document.getElementById("email").value;
+        var fdate = document.getElementById("date").value;
+        var ffwp = document.getElementById("fwp").value;
+        
+        setCookie("name",fname,2);
+        setCookie("phone",fphone,2);
+        setCookie("email",femail,2);
+        setCookie("date",fdate,2);
+        setCookie("fwp",ffwp,2);
+        setCookie("color",x,2);
+            
+        document.getElementById("bg").style.backgroundColor=x;
+        document.getElementById("bgg").style.ba=x;
+
+
+    }
+
     function getloc() {
         if (navigator.geolocation) {
           navigator.geolocation.watchPosition(showPosition);
@@ -215,7 +318,6 @@ var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     alert("email format invalid.");
     return false;
   }
-
 testEle2.style.border = "green solid 3px";
 
 
@@ -254,16 +356,93 @@ if (re.test(testEle)!= true) {
     return false;
 }
 testEle2.style.border = "green solid 3px";
-
 alert("Submited Successfully");
-
 }
 
 
 
 
-    </script>
 
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user=getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+
+function getCookie(cname) 
+        {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function fillbox()
+        {
+            document.getElementById("pname").innerHTML=getCookie("name");
+            document.getElementById("pphone").innerHTML=getCookie("phone");
+            document.getElementById("pemail").innerHTML=getCookie("email");
+            document.getElementById("pdate").innerHTML=getCookie("date");
+            document.getElementById("pfwp").innerHTML=getCookie("fwp");
+
+            document.getElementById("bg").style.backgroundColor=getCookie("color");
+            document.getElementById(getCookie("color")).checked=true;
+
+            // document.getElementById("bgg").style.backgroundColor=x;
+            document.getElementById(getCookie("color")).checked=true;
+            document.getElementById("bg").style.backgroundImage = "url(Pictures/bg/b"+getCookie("back")+")";
+            
+        }
+
+        function remove()
+        {
+            alert("Cookies Cleared");
+            document.cookie = "name"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "date"+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            location.reload();
+        }
+
+        function func2()
+        {
+            var back=Math.floor(Math.random() * 3)+".jpeg";
+            setCookie("back",back,2);
+            document.getElementById("bgg").style.backgroundImage = "url(Pictures/bg/b"+back+")";
+        }
+
+
+</script>
 </body>
 </center>
 </html>
